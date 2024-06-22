@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Furry Friends</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      
+<div class="navbar" id="navbar">
+    <div>
+        <a href="index.html">Furry Friends</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#index">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="form.html">SERVICES</a></li>
+            <li ><button class="loginbtn" onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
+            
+        </ul>
+    </nav>
+</div>
+
+        <div id="login-form" class="login-page">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" onclick="login()" class="toggle-btn">Login</button>
+                    <button type="button" onclick="register()" class="toggle-btn">Register</button>
+                </div>
+                <form id="login" class="input-group-login" name="submit-to-google-sheet1">
+                    <input type="text" class="input-field" name="Email" placeholder="Enter Email Id" required><br>
+                    <input type="password" class="input-field" name="Password" placeholder="Enter password" required><br>
+                    <input type="checkbox" class="check-box"><span> Forgot Password</span><br>
+              <a href="#index" ><button type="submit" class="submit-btn">Login</button></a>
+                
+                </form>
+                <script>
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzs7owX4sLg1gKon6RWX1uj7TQ1at5cR8Aw76mcuWuVKPshSO5i_RPw25vcP-SjfkN6/exec'
+                    const form = document.forms['submit-to-google-sheet1']
+                  
+                    form.addEventListener('submit', e => {
+                      e.preventDefault()
+                      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(response => {console.log('Success!', response)
+                            alert("Successfully completed");
+                            form.reset();
+                        })
+                        .catch(error => console.error('Error!', error.message))
+                    })
+                  </script>
+                <form id="register" class="input-group-register" name="submit-to-google-sheet2">
+                    <input type="text" class="input-field" name="firstname" placeholder="First Name" required><br>
+                    <input type="text" class="input-field"  name="lastname"placeholder="Last Name" required><br>
+                    <input type="email" class="input-field" name="Email" placeholder="Email Id" required><br>
+                    <input type="password" class="input-field"  name="enterpassword" placeholder="Enter Password" required><br>
+                    <input type="password" class="input-field"  name="Confirmpassword" placeholder="Confirm Password" required><br>
+                    <input type="checkbox" class="check-box"> <span> I agree to the terms and conditions</span><br>
+                   <a href="#index" ><button type="submit" class="submit-btn">Register</button></a>
+                </form>
+                <script>
+                    const scriptURL1 = 'https://script.google.com/macros/s/AKfycby-emzcHzkcueZ4XMO56NP54g8PG7vnkA_o13q9SZMGfLCvPJjwjn7HZR6MQnsP7VNGOg/exec'
+                    const form1= document.forms['submit-to-google-sheet2']
+                  
+                    form1.addEventListener('submit', e => {
+                      e.preventDefault()
+                      fetch(scriptURL1, { method: 'POST', body: new FormData(form1)})
+                        .then(response => {console.log('Success!', response)
+                            alert("Successfully completed");
+                            form1.reset();
+                        })
+                        .catch(error => console.error('Error!', error.message))
+                    })
+                  </script>
+            </div>
+        </div>
+
+    </header>
+    
+    <section class="slideshow-container" id="index">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="background.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="choose1.jpg" style="width:100%">
+            </div>
+            <div class="mySlides fade">
+                <img src="choose2jpg.jpg" style="width:100%">
+            </div>
+        </div>
+        <div class="home-text">
+            <h1>"Find your furry friend:"</h1>
+            <h3>where every dog deserves a home.<br> Start your journey with  or rehome <br>a dog from home to home, connecting <br>hearts and saving lives.</h3>
+            <a href="view1.html" class="btn1">Adopt</a>
+            <a href="#rehome" class="btn2">Rehome</a>
+        </div>
+    </section>
+
+
+
+    <!--aboutus-->
+
+        <section id="about" class="about-section">
+        <div class="inner-container">
+            <img src="about.jpg" alt="About Us Image" class="about-image">
+            <div class="content">
+                <h1>ABOUT US</h1><br>
+                <p class="text">
+                    Welcome to Paws and Home, where every dog finds a loving home!
+                    <br><br>
+                    At Paws and Home, our mission is to connect loving families with dogs in need of a new home. 
+                    We understand that circumstances can change, and sometimes rehoming a beloved pet is the most compassionate choice. 
+                    Our goal is to make this process as smooth and stress-free as possible for both the dogs and the families involved.
+                    We are a dedicated team of dog enthusiasts and animal welfare advocates who believe that every dog deserves a chance to be part of a loving family.
+                    Our team includes experienced pet caregivers, veterinarians, and volunteers who work tirelessly to ensure the well-being of every dog that comes through our doors.
+                </p>
+                <div class="skills">
+                <a href="rehomeabout.html"> <button class="btn1">Rehoming</button></a>
+                 <a href="adoption about.html" > <button class="btn2">Adoption</button></a>
+                <a href="supportabout.html"><button class="btn3">Support</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---rehome-->
+    <section id="rehome" class=" quality">
+       
+        <div class="main-quality">
+            <div class="main-inner-quality">
+                <div class="quality-content quality-image">
+                    <img src="sectionrehome.jpg" alt="">
+                 </div>
+            </div>
+        </div>
+        <div class="main-quality">
+            <div class="main-inner-quality">
+                <div class="quality-content">
+                    <h2>Rehome</h2>
+                    <p> Rehoming through "Furry Friends" is designed to be a seamless and supportive experience for both dogs and potential adopters. The rehoming section of the website provides comprehensive information about the rehoming process, starting with an easy-to-navigate database of dogs in need of new homes. Each dog's profile includes essential details such as age, breed, temperament, and medical history, ensuring that potential adopters have all the information they need to make an informed decision. Users can search and filter dogs based on various criteria, such as size, age, and compatibility with children or other pets. The website also offers a personalized matching service, where users can input their preferences and receive recommendations on dogs that would be a good fit for their home.</p><br>
+                    <a href="rehomeform.html" class="btn">Rehome</a>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    
+<!--gallery-->
+<section id="gallery" class="gallery">
+    <div class="main-gallery">
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery1.jpg" alt="">
+            </div>
+        </div>
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery2.jpg" alt="">
+            </div>
+        </div>
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery3.jpg" alt="">
+            </div>
+        </div>
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery4.jpg" alt="">
+            </div>
+        </div>
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery5.jpg" alt="">
+            </div>
+        </div>
+        <div class="inner-gallery">
+            <div class="gallery-image">
+                <img src="gallery6.jpg" alt="">
+            </div>
+        </div>    
+    </div>
+</section>
+<!--adopt-->
+<section id="adopt" class="adopt-our-dog">
+    <div class="adopt-main">
+       <h1>Adoption</h1>
+       <p>The adoption process on "Furry Friends" is designed to be thorough, supportive, and user-friendly, ensuring that every dog finds a loving and suitable home. The adoption section of the website features a detailed catalog of dogs available for adoption, each with a comprehensive profile including information about their age, breed, temperament, medical history, and special needs. Prospective adopters can use advanced search and filter options to find dogs that match their lifestyle and preferences. </p>
+       <a href="view1.html" class="btn">Adopt</a>
+    </div>
+</section>
+
+
+
+ <!--FOOTER-->
+ <footer class="site-footer">
+        <div class="top-footer section">
+            <div class="sec-wp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="" alt="">
+                                </a>
+                            </div>
+                            <div class="social-icon">
+                                <ul>
+                                    <li><a href="#"><img src="instagram.png" alt="instagram"></a></li>
+                                    <li><a href="#"><img src="facebook.png" alt="facebook"></a></li>
+                                    <li><a href="#"><img src="twitter.png" alt="twitter"></a></li>
+                                    <li><a href="#"><img src="linkedin.png" alt="linkedin"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="footer-lex-box">
+                                <div class="footer-table-info">
+                                    <h3 class="h3-title">Open Hours</h3><br>
+                                    <ul>
+                                        <li><i class="uil uil-clock"></i> Monday-Friday: 9am - 10pm</li>
+                                        <li><i class="uil uil-clock"></i> Saturday-Sunday: 9am - 12pm</li>
+                                    </ul>
+                                </div>
+                                <div class="footer-menu furryfriends-nav-menu">
+                                    <h3 class="h3-title">Links</h3><br>
+                                    <ul>
+                                        <li><a href="#home" class="footer-active-menu">Home</a></li>
+                                        <li><a href="#about">About</a></li>
+                                        <li><a href="services">Services</a></li>
+                                        <li><a href="contact">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-menu">
+                                    <h3 class="h3-title">Furry Friends</h3><br>
+                                    <ul>
+                                        <li><a href="#">Terms and Conditions</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Data Protection</a></li>
+                                        <li><a href="#">Security Measurements</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="copyrights-text">
+                            <p>Copyright &copy; 2024 <span class="name">Furry Friends</span>. All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    
+
+   <script src="index.js"></script>
+   <script src="https://unpkg.com/scrollreveal"></script>
+</body>
+</html>

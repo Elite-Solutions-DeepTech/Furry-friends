@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopting dog details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0,0,0,0.9);
+            background-image: url(subscription.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            backdrop-filter: blur(15px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: rgba(0,0,0,0.9);
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 715px;
+            border-radius: 42px;
+            text-align: left;
+        }
+        .modal-content h2, .modal-content p, .modal-content ol, .modal-content ol li {
+            color: aliceblue;
+            font-size: 25px;
+        }
+        .close {
+            color: rgba(0,0,0,0.9);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: aliceblue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+            padding: 360px;
+        }
+        .container h1{
+            color: aliceblue;
+           
+            background: transparent;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 120%;
+            padding: 0px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #f3c693;
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: 0.5s;
+            margin-bottom: 20px;
+        }
+        .btn:hover {
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>At Paws and Home, we are passionate about supporting our community of dog lovers at every step of their journey. 
+            Whether you're rehoming a beloved pet, adopting a new furry friend, or seeking advice on pet care, 
+            we offer a range of resources and services to ensure you have the knowledge and support you need.</h1>
+        <button id="openModalBtn" class="btn">Learn More About support</button>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Resources support</h2>
+            <p>
+                
+                <ol>
+                    <li>Comprehensive Resources</li>
+                    <li>Community Network</li>
+                    <li>Personalized Support</li>
+                    <li>Commitment to Excellence</li>
+                    <li>Join Our Community</li>
+                    
+                </ol>
+            </p>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("modal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

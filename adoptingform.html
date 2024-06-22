@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgba(0, 0, 0, 0.9);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(adoptform.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+           
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: transparent;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            backdrop-filter: blur(20px);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color:aliceblue;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color:aliceblue;
+        }
+
+        input, textarea, select {
+            width: 97%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid aliceblue;
+            border-radius: 4px;
+            background-color: transparent;
+        }
+
+        button {
+            background-color: #f3c693;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 18px;
+    padding-left: 18px;
+    border-radius: 10px;
+    transition: 0.5s;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:brown;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dog Adoption Application</h1>
+        <form id="adoptionForm" name="submit-to-google-sheet">
+            <h2>Personal Information</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <h2>Adoption Details</h2>
+            <label for="lifestyle">Describe your lifestyle:</label>
+            <textarea id="lifestyle" name="lifestyle" rows="4" required></textarea>
+            
+            <label for="experience">Experience with pets:</label>
+            <textarea id="experience" name="experience" rows="4" required></textarea>
+            
+            <label for="expectations">What are your expectations from adopting a dog?</label>
+            <textarea id="expectations" name="expectations" rows="4" required></textarea>
+            
+            <label for="reason">Reason for adopting:</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+            
+            <label for="dogPic">Upload a picture of the dog you want to adopt:</label>
+            <input type="file" id="dogPic" name="dogPic" accept="image/*" required>
+            <label for="idproof">Upload your id proof(adhar):</label>
+            <input type="file" id="idproof" name="idproof" accept="image/*" required>
+            <h2>Screening and Approval</h2>
+            <label for="notes">Screening Notes:</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+            
+            <label for="status">Approval Status:</label>
+            <select id="status" name="status">
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+            
+            <label for="reasons">Reasons for approval/rejection:</label>
+            <textarea id="reasons" name="reasons" rows="4"></textarea>
+            
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+     
+
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxREG1-jPh7kuXpL2I753k6IlkEQ23PKodo3ZMc2qJ1FSAxeYR07ylUaJDEd8BK4W5uHQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    <script>
+        document.getElementById('adoptionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            const formEntries = Object.fromEntries(formData.entries());
+            console.log('Form Data:', formEntries);
+            
+            const dogPicFile = formData.get('dogPic');
+            console.log('Dog Picture:', dogPicFile.name);
+            
+            alert('Application submitted successfully!');
+            
+            form.reset();
+        });
+    </script>
+</body>
+</html>

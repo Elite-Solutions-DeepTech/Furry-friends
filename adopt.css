@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+   /* background: linear-gradient(rgba(-19, 28, 84, 400.7), rgba(33, 126, 62, 0.)), url('background.png');*/
+}
+
+.search-bar {
+    text-align: right;
+    margin: 20px 20px 20px 0;
+}
+
+.search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent;
+    color: aliceblue;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: aliceblue;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: brown;
+    color: aliceblue;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+a {
+    text-decoration: none;
+}
+
+.slider-container {
+
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    overflow-x: auto;
+}
+.slider-wrapper::-webkit-scrollbar{
+    width: 0px;
+}
+
+.autoWidth {
+    display: flex;
+    width: 100%;
+}
+
+.cs-hidden {
+    display: flex;
+    width: 100%;
+}
+
+.box {
+    width: 300px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.slide-image {
+    height: 450px;
+    position: relative;
+    margin-right: 2px;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border:1px solid white;
+    border-bottom: 0px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.details-box {
+    width: 100%;
+    backdrop-filter: blur(0px);
+    border:1px solid white;
+    border-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+   
+    background-color: rgb(30, 28, 28);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.type {
+    display: flex;
+    flex-direction: column;
+}
+
+.type a {
+    color: aliceblue;
+    margin: 5px 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding-right: 8px;
+}
+
+.type span {
+    color: aliceblue;
+}
+
+.adopt {
+    color: aliceblue;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: Poppins, sans-serif;
+    letter-spacing: 0.5px;
+    background: brown;
+    border-radius: 800px;
+    padding: 6px 14px;
+}
+
+.overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adopt-btn {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: aliceblue;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+}
+
+.adopt-btn:hover {
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.overlay {
+    visibility: hidden;
+}
+
+.slide-image:hover .overlay {
+    visibility: visible;
+    animation: fade 0.5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    /* Center text in modal */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add box shadow */
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    /* Rounded corners for image */
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#description {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #000;
+    /* Black text color for description */
+    text-align: left;
+    /* Align description text */
+}
+
+/* Blur background when modal is open */
+body.modal-open .content {
+    filter: blur(5px);
+}
+
+/* Hide the description initially */
+.details-box .type span {
+    display: none;
+}

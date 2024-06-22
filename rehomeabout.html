@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws and Home - Rehoming Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0,0,0,0.9);
+            background-image: url(subscription.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            backdrop-filter: blur(15px);
+            margin: 0;
+            padding: 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: rgba(0,0,0,0.9);
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 715px;
+            border-radius: 42px;
+            text-align: left;
+        }
+        .modal-content h2, .modal-content p, .modal-content ol, .modal-content ol li {
+            color: aliceblue;
+            font-size: 25px;
+        }
+        .close {
+            color: rgba(0,0,0,0.9);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: aliceblue;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+            padding: 360px;
+        }
+        .container h1{
+            color: aliceblue;
+            backdrop-filter: blur(20px);
+            background: transparent;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 120%;
+            padding: 0px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #f3c693;
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: 0.5s;
+            margin-bottom: 20px;
+        }
+        .btn:hover {
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rehoming is the process of finding a new, suitable home for an animal that the current owner can no longer care for. This can happen for a variety of reasons, such as changes in living situations, financial constraints, health issues, or behavioral problems with the pet. Here are key points to consider regarding rehoming</h1>
+        <button id="openModalBtn" class="btn">Learn More About Rehoming</button>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Rehoming Your Dog with Paws and Home</h2>
+            <p>
+                At Paws and Home, we understand that the decision to rehome your dog can be incredibly challenging and emotional.
+                Our goal is to provide a safe, supportive, and stress-free platform for dog owners who find themselves needing to rehome their pets. 
+                Here’s how our rehoming process works and the support we offer:
+                
+                <ol>
+                    <li>Initial Consultation</li>
+                    <li>Profile Creation</li>
+                    <li>Health and Behavior Assessment</li>
+                    <li>Matchmaking</li>
+                    <li>Adoption Screening</li>
+                    <li>Trial Period</li>
+                    <li>Finalization</li>
+                </ol>
+            </p>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("modal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

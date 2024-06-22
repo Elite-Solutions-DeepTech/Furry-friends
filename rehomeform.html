@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rehome a Dog</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0px;
+        padding: 0px;
+        background-color: rgba(0, 0, 0, 0.9);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(rehomeimg.jpg);
+       
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+           
+    }
+    h1{
+        color: aliceblue;
+        font-size: 35px;
+        line-height: 30px;
+        text-align: justify;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        
+    }
+    form {
+        max-width: 800px;
+        margin: 0 auto;
+        background: transparent;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+   
+        background: transparent;
+        backdrop-filter: blur(20px);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: aliceblue;
+        
+    }
+    input[type="text"], input[type="tel"], input[type="file"], textarea, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid aliceblue ;
+        border-radius: 4px;
+        box-sizing: border-box;
+        
+        color:aliceblue;
+        background: transparent;
+
+    }
+    input[type="submit"] {
+        background-color: #f3c693;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 18px;
+    padding-left: 18px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+    
+    input[type="submit"]:hover {
+        background-color: brown;
+    }
+    fieldset {
+        margin-bottom: 20px;
+        border: 1px solid aliceblue;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    legend {
+        font-weight: bold;
+        color: aliceblue;
+        font-size: 25px;
+       
+    }
+</style>
+</head>
+<body>
+    <h1>REHOME YOUR DOG </h1>
+
+<form id="dogForm" enctype="multipart/form-data" name="submit-to-google-sheet">
+    <fieldset>
+        <legend>Customer Information</legend>
+        <label for="customerName">Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+
+        <label for="customerAddress">Address:</label>
+        <input type="text" id="customerAddress" name="customerAddress" required>
+
+        <label for="customerPhone">Phone Number:</label>
+        <input type="tel" id="customerPhone" name="customerPhone"  required>
+        
+
+        <label for="rehomingReason">Reason for Rehoming:</label>
+        <textarea id="rehomingReason" name="rehomingReason" rows="4" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Dog Profile</legend>
+        <label for="dogName">Name:</label>
+        <input type="text" id="dogName" name="dogName" required>
+
+        <label for="dogBreed">Breed:</label>
+        <input type="text" id="dogBreed" name="dogBreed" required>
+
+        <label for="dogAge">Age:</label>
+        <input type="text" id="dogAge" name="dogAge" required>
+
+        <label for="dogGender">Gender:</label>
+        <select id="dogGender" name="dogGender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="dogWeight">Size/Weight:</label>
+        <input type="text" id="dogWeight" name="dogWeight" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>Health and Medical Information</legend>
+        <label for="vaccinationStatus">Vaccination Status:</label>
+        <textarea id="vaccinationStatus" name="vaccinationStatus" rows="2" required></textarea>
+
+        <label for="spayingNeuteringStatus">Spaying/Neutering Status:</label>
+        <textarea id="spayingNeuteringStatus" name="spayingNeuteringStatus" rows="2" required></textarea>
+
+        <label for="healthIssues">Any Known Health Issues:</label>
+        <textarea id="healthIssues" name="healthIssues" rows="2"></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Behavior and Temperament</legend>
+        <label for="temperament">General Temperament:</label>
+        <textarea id="temperament" name="temperament" rows="2" required></textarea>
+
+        <label for="behaviorWithPets">Behavior with Other Pets:</label>
+        <textarea id="behaviorWithPets" name="behaviorWithPets" rows="2" required></textarea>
+
+        <label for="behaviorWithChildren">Behavior with Children:</label>
+        <textarea id="behaviorWithChildren" name="behaviorWithChildren" rows="2" required></textarea>
+
+        <label for="trainingCommands">Training and Commands Known:</label>
+        <textarea id="trainingCommands" name="trainingCommands" rows="2" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Background and History</legend>
+        <label for="previousLivingConditions">Previous Living Conditions:</label>
+        <textarea id="previousLivingConditions" name="previousLivingConditions" rows="2" required></textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Media</legend>
+        <label for="dogPhotos">Upload Photos (multiple angles):</label>
+        <input type="file" id="dogPhotos" name="dogPhotos" accept="image/*" multiple required>
+
+        <label for="dogVideos">Upload Videos (optional):</label>
+        <input type="file" id="dogVideos" name="dogVideos" accept="video/*">
+    </fieldset>
+
+    <input type="submit" value="Submit">
+</form>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw7EbnXA5gDIzp0Bld8nyST9TLSP9YfTE52faLyj2fCdM_vrzZ9oHE4hcr_rPMRsVlHIQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
+
+<script>
+    document.getElementById("dogForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        for (let [name, value] of formData.entries()) {
+            console.log(name, value);
+        }
+        this.reset();
+    });
+</script>
+
+
+</body>
+</html>
